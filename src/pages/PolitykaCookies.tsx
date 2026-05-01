@@ -149,7 +149,7 @@ const PolitykaCookies = () => {
               <span className="text-2xl shrink-0">🖥️</span>
               <div>
                 <p className="font-semibold text-sm text-foreground mb-1">Panel zgód na stronie (Cookie Banner)</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">Przy pierwszej wizycie na stronie Shoppalyzer zostaniesz poproszony o wyrażenie zgody na użycie ciasteczek funkcjonalnych i analitycznych. Swoje preferencje możesz w każdej chwili zmienić klikając ikonkę 🍪 w lewym dolnym rogu strony.</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">Przy pierwszej wizycie na stronie Shoppalyzer zostaniesz poproszony o wyrażenie zgody na użycie ciasteczek funkcjonalnych i analitycznych. Swoje preferencje możesz w każdej chwili zmienić, używając przycisku „Zresetuj ustawienia cookies" na dole tej strony.</p>
               </div>
             </div>
             <div className="flex gap-3 rounded-xl p-4" style={{ background: '#f8fbff', border: '1px solid #e5f3ff' }}>
@@ -163,6 +163,24 @@ const PolitykaCookies = () => {
           <div className="mt-4 flex items-center gap-3 rounded-xl p-4" style={{ background: '#1E4D72' }}>
             <Mail className="h-5 w-5 text-white shrink-0" />
             <p className="text-white text-sm">Pamiętaj: zablokowanie cookies niezbędnych może uniemożliwić korzystanie z konta na platformie. Pytania? <a href="mailto:shoppalyzer@gmail.com" className="underline font-bold text-orange-300">shoppalyzer@gmail.com</a></p>
+          </div>
+
+          {/* Reset cookie preferences — restores the consent banner */}
+          <div className="mt-6 rounded-xl border border-border p-5">
+            <p className="text-sm font-semibold text-foreground mb-2">Chcesz zmienić swoje preferencje?</p>
+            <p className="text-xs text-muted-foreground leading-relaxed mb-3">
+              Możesz w każdej chwili zresetować swoje wybory dotyczące cookies. Po kliknięciu przycisku poniżej baner zgody pojawi się ponownie u dołu strony.
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                localStorage.removeItem('sp_cookies');
+                window.dispatchEvent(new Event('shoppalyzer:open-cookie-settings'));
+              }}
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-hover transition-colors"
+            >
+              Zresetuj ustawienia cookies →
+            </button>
           </div>
         </Section>
 
