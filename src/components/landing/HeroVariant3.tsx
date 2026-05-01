@@ -36,7 +36,7 @@ export const HeroVariant3 = () => {
             <motion.h1
               variants={fadeUp}
               transition={{ duration: 0.7 }}
-              className="text-[2.5rem] sm:text-5xl lg:text-[3.6rem] xl:text-[4rem] font-bold leading-[1.04] tracking-[-0.025em] text-brand-navy"
+              className="text-[1.875rem] sm:text-4xl md:text-5xl lg:text-[3.6rem] xl:text-[4rem] font-bold leading-[1.05] tracking-[-0.025em] text-brand-navy break-words"
             >
               Twoja konkurencja już wie,
               <br />
@@ -63,7 +63,7 @@ export const HeroVariant3 = () => {
                 whileTap={{ scale: 0.985 }}
                 transition={{ type: 'spring', stiffness: 380, damping: 22 }}
                 onClick={openWaitlist}
-                className="group inline-flex items-center justify-center gap-2 bg-accent-brand text-accent-brand-foreground font-semibold text-base px-7 py-3.5 rounded-xl shadow-medium hover:shadow-strong transition-shadow"
+                className="group inline-flex items-center justify-center gap-2 bg-accent-brand text-accent-brand-foreground font-semibold text-sm sm:text-base px-5 sm:px-7 py-3.5 rounded-xl shadow-medium hover:shadow-strong transition-shadow w-full sm:w-auto"
               >
                 Znajdź swoje okazje marżowe
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -73,7 +73,7 @@ export const HeroVariant3 = () => {
                 whileHover={{ y: -2 }}
                 transition={{ type: 'spring', stiffness: 380, damping: 22 }}
                 onClick={() => { navigate('/sample-report'); window.scrollTo(0, 0); }}
-                className="group inline-flex items-center justify-center gap-1.5 text-foreground font-medium text-base px-6 py-3.5 rounded-xl ring-1 ring-border hover:ring-foreground/30 hover:bg-surface-muted transition-all"
+                className="group inline-flex items-center justify-center gap-1.5 text-foreground font-medium text-sm sm:text-base px-5 sm:px-6 py-3.5 rounded-xl ring-1 ring-border hover:ring-foreground/30 hover:bg-surface-muted transition-all w-full sm:w-auto"
               >
                 Zobacz przykładowy raport
                 <ChevronRight className="h-4 w-4 opacity-60 transition-transform group-hover:translate-x-0.5" />
@@ -94,7 +94,7 @@ export const HeroVariant3 = () => {
             </motion.div>
           </motion.div>
 
-          <div className="relative lg:pl-4">
+          <div className="relative hidden md:block lg:pl-4">
             <HeroDashboardMockup />
           </div>
         </div>
