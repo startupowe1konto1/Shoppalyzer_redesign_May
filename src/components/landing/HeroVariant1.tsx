@@ -42,11 +42,11 @@ export const HeroVariant1 = () => {
               </span>
             </motion.div>
 
-            {/* Headline — explicit line break between sentences for clean reading */}
+            {/* Headline — fluidly scales: 30px mobile → 60px xl */}
             <motion.h1
               variants={fadeUp}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="text-[2.4rem] sm:text-5xl lg:text-[3.4rem] xl:text-[3.75rem] font-bold leading-[1.04] tracking-[-0.025em] text-brand-navy"
+              className="text-[1.875rem] sm:text-4xl md:text-5xl lg:text-[3.4rem] xl:text-[3.75rem] font-bold leading-[1.05] tracking-[-0.025em] text-brand-navy break-words"
             >
               Przestań zgadywać.
               <br />
@@ -57,7 +57,7 @@ export const HeroVariant1 = () => {
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.7 }}
-              className="mt-5 text-xl lg:text-2xl text-foreground/80 leading-snug font-medium tracking-[-0.01em] max-w-2xl"
+              className="mt-5 text-base sm:text-lg lg:text-2xl text-foreground/80 leading-snug font-medium tracking-[-0.01em] max-w-2xl"
             >
               Inteligentna analiza konkurencji dostępna dla każdego.
             </motion.p>
@@ -66,7 +66,7 @@ export const HeroVariant1 = () => {
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.7 }}
-              className="mt-6 text-base lg:text-lg leading-relaxed text-muted-foreground max-w-2xl"
+              className="mt-6 text-sm sm:text-base lg:text-lg leading-relaxed text-muted-foreground max-w-2xl"
             >
               Shoppalyzer to Twój automatyczny analityk cen na Allegro.
               Zamiast godzin w&nbsp;Excelu, dostajesz gotowe wnioski:
@@ -114,9 +114,9 @@ export const HeroVariant1 = () => {
                 className="
                   group inline-flex items-center justify-center gap-2
                   bg-accent-brand text-accent-brand-foreground
-                  font-semibold text-base px-7 py-3.5 rounded-xl
+                  font-semibold text-sm sm:text-base px-5 sm:px-7 py-3.5 rounded-xl
                   shadow-medium hover:shadow-strong
-                  transition-shadow
+                  transition-shadow w-full sm:w-auto
                 "
               >
                 Wypróbuj Shoppalyzer za darmo
@@ -129,9 +129,9 @@ export const HeroVariant1 = () => {
                 onClick={() => { navigate('/sample-report'); window.scrollTo(0, 0); }}
                 className="
                   group inline-flex items-center justify-center gap-1.5
-                  text-foreground font-medium text-base px-6 py-3.5 rounded-xl
+                  text-foreground font-medium text-sm sm:text-base px-5 sm:px-6 py-3.5 rounded-xl
                   ring-1 ring-border hover:ring-foreground/30 hover:bg-surface-muted
-                  transition-all
+                  transition-all w-full sm:w-auto
                 "
               >
                 Zobacz przykładowy raport
@@ -159,8 +159,8 @@ export const HeroVariant1 = () => {
             </motion.div>
           </motion.div>
 
-          {/* ─── RIGHT: dashboard mockup ─── */}
-          <div className="relative">
+          {/* ─── RIGHT: dashboard mockup (hidden on mobile — table too wide) ─── */}
+          <div className="relative hidden md:block">
             <HeroDashboardMockup />
           </div>
         </div>
