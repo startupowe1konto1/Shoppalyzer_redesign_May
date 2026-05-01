@@ -60,9 +60,9 @@ export const FinalCTA = () => {
               className="
                 group inline-flex items-center justify-center gap-2
                 bg-accent-brand text-accent-brand-foreground
-                font-semibold text-base px-7 py-3.5 rounded-xl
+                font-semibold text-sm sm:text-base px-5 sm:px-7 py-3.5 rounded-xl
                 shadow-medium hover:shadow-strong hover:bg-accent-brand-hover
-                transition-all
+                transition-all w-full sm:w-auto
               "
             >
               Wypróbuj Shoppalyzer za darmo
@@ -75,9 +75,9 @@ export const FinalCTA = () => {
               onClick={() => { navigate('/sample-report'); window.scrollTo(0, 0); }}
               className="
                 group inline-flex items-center justify-center gap-1.5
-                text-white font-medium text-base px-6 py-3.5 rounded-xl
+                text-white font-medium text-sm sm:text-base px-5 sm:px-6 py-3.5 rounded-xl
                 ring-1 ring-white/25 hover:ring-white/55 hover:bg-white/[0.04]
-                transition-all
+                transition-all w-full sm:w-auto
               "
             >
               Zobacz przykładowy raport
