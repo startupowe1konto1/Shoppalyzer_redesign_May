@@ -11,22 +11,27 @@ export const CookieConsent = () => {
   const navigate = useNavigate();
   const [visible, setBanner] = useState(false);
   const [modal, setModal] = useState(false);
-  const [fab, setFab] = useState(false);
   const [functional, setFunctional] = useState(false);
   const [analytics, setAnalytics] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem('sp_cookies');
     if (saved) {
+      // Consent already given — initialize chosen analytics, but render nothing
       const prefs: CookiePrefs = JSON.parse(saved);
       setFunctional(prefs.functional);
       setAnalytics(prefs.analytics);
-      setFab(true);
       if (prefs.functional) initFunctional();
       if (prefs.analytics) initAnalytics();
     } else {
       setBanner(true);
     }
+
+    // Allow other parts of the app (e.g. /polityka-cookies "Reset preferences" link)
+    // to re-open the consent banner without a full reload.
+    const reopen = () => setBanner(true);
+    window.addEventListener('shoppalyzer:open-cookie-settings', reopen);
+    return () => window.removeEventListener('shoppalyzer:open-cookie-settings', reopen);
   }, []);
 
   const initFunctional = () => {
@@ -43,7 +48,6 @@ export const CookieConsent = () => {
     localStorage.setItem('sp_cookies', JSON.stringify(prefs));
     setBanner(false);
     setModal(false);
-    setFab(true);
     if (prefs.functional) initFunctional();
     if (prefs.analytics) initAnalytics();
   };
@@ -133,17 +137,6 @@ export const CookieConsent = () => {
         </div>
       )}
 
-      {/* FAB */}
-      {fab && (
-        <button
-          onClick={() => { setFab(false); setBanner(true); }}
-          className="fixed bottom-6 left-6 z-50 w-12 h-12 rounded-full text-white text-xl flex items-center justify-center"
-          style={{ background: '#1E4D72' }}
-          title="Ustawienia cookies"
-        >
-          🍪
-        </button>
-      )}
     </>
   );
 };
